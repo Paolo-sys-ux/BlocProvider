@@ -1,3 +1,4 @@
+import 'package:api_getdata/bloc/game_request/game_request_bloc.dart';
 import 'package:api_getdata/bloc/request_data/request_data_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -73,9 +74,12 @@ class _MyHomePageState extends State<MyHomePage> {
               style: TextStyle(color: Colors.white),
             ),
           ),
-          FlatButton(onPressed: (){
+          MaterialButton(
+            color: Colors.black,
+            onPressed: (){
+            BlocProvider.of<GameRequestBloc>(context).add(FetchCharacter());
                   Navigator.of(context).pushNamed('/character');
-                }, child: Text("Valorant Characters"))
+                }, child: Text("Valorant Characters", style: TextStyle(color: Colors.redAccent),))
         ],
       ),
     );
